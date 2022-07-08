@@ -1,24 +1,23 @@
-﻿// Задача 64: Задайте значения M и N. Напишите программу,
-// которая выведет произведение натуральных чисел в промежутке от M до N.
-// M = 1; N = 5. ->120
-// M = 4; N = 6. -> 120
+﻿// Задача 66: Задайте значения M и N. Напишите программу, 
+// которая найдёт сумму натуральных элементов в промежутке от M до N.
+// M = 1; N = 15 -> 120
+// M = 4; N = 8. -> 30
 
 using System;
 using static System.Console;
 Clear();
 
-WriteLine("Программа, которая которая выведет произведение натуральных чисел в промежутке от M до N.");
+WriteLine("Программа, которая которая выведет сумму натуральных чисел в промежутке от M до N.");
 WriteLine("Задайте M и N через пробел. \nПервое - M, второе - N");
 
 string[] sizes = ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
 int m = int.Parse(sizes[0]);
 int n = int.Parse(sizes[1]);
 Write($"M={m}; N={n}; ");
-WriteLine("");
-
-int result = 1;
-PrintMultiplyElemArray(m, n, result);
-void PrintMultiplyElemArray(int start, int end, int result)
+WriteLine();
+int result = 0;
+PrintSummElemArray(m, n, result);
+void PrintSummElemArray(int start, int end, int result)
 {
 
     if (start > end)
@@ -26,16 +25,13 @@ void PrintMultiplyElemArray(int start, int end, int result)
         WriteLine(result);
         return;
     }
-    result = result * (start++);
+    result = result + (start++);
 
-    PrintMultiplyElemArray(start, end, result);
+    PrintSummElemArray(start, end, result);
 }
 
-
-
-
 // int[] rangeArray = (GetArrayFromRange(m, n));
-// MultiplyArray(rangeArray);
+// SummArray(rangeArray);
 
 // int[] GetArrayFromRange(int startRange, int endRange)
 // {
@@ -46,12 +42,12 @@ void PrintMultiplyElemArray(int start, int end, int result)
 //     }
 //     return newArray;
 // }
-// void MultiplyArray(int[] array)
+// void SummArray(int[] array)
 // {
 //     int result = array[0];
 //     for (int i = 1; i < array.Length; i++)
 //     {
-//         result *= array[i];
+//         result += array[i];
 //     }
 //     WriteLine($"->{result}");
 // }
